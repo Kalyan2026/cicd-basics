@@ -1,12 +1,12 @@
-name: CI basics
+name: CI Day 4 - Production style
 
 on:
-    push:
+    pull_request:
         branches:
             - main
 
 jobs:
-    build:
+    build_and_test:
         runs-on: ubuntu-latest
 
         steps:
@@ -23,6 +23,11 @@ jobs:
 
             - name: Run disk check script
               run: ./scripts/check_disk.sh
+    deploy:
+        needs: build_and_test
+        runs-on: ubuntu-latest
+        if: github.event_name == 'push' && github.ref == 'refs/head/main'
 
-            - name: Run only if all disks are passed
-              run: echo "Disk check passed, continuing pipeline do"
+        steps:
+            -  name: Deploy app
+               run: echo "Deployed to production"
