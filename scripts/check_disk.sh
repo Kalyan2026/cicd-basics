@@ -1,6 +1,6 @@
 #!/bin/bash
 
-THRESHOLD=80
+THRESHOLD=30
 alert=0
 
 while read -r fs size used avail use mount; do
