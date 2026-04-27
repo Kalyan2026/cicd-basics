@@ -20,7 +20,7 @@ jobs:
                 df -h
 
             - name: Run disk check script
-              run: sh "./scripts/check_disk.sh"
+              run: ./scripts/check_disk.sh
 
             - name: Run only if all disks are passed
               run: echo "Disk check passed, continuing pipeline"
