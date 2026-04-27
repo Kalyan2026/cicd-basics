@@ -23,4 +23,4 @@ jobs:
               run: ./scripts/check_disk.sh
 
             - name: Run only if all disks are passed
-              run: echo "Disk check passed, continuing pipeline"
+              run: echo "Disk check passed, continuing pipeline do"
