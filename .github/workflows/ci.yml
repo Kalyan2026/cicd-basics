@@ -13,9 +13,14 @@ jobs:
             - name: Checkout code
               uses: actions/checkout@v4
 
-            - name: Run simple shell command
+            - name: Show system info
               run: |
-              echo "This will fail"
-              exit 1
+                echo " Running on:"
+                uname -a
+                df -h
 
+            - name: Run disk check script
+              run: sh "./scripts/check_disk.sh"
 
+            - name: Run only if all disks are passed
+              run: echo "Disk check passed, continuing pipeline"
