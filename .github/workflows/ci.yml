@@ -18,6 +18,8 @@ jobs:
                 echo " Running on:"
                 uname -a
                 df -h
+            - name: Make script executable
+              run: chmod +x ./scripts/check_disk.sh
 
             - name: Run disk check script
               run: ./scripts/check_disk.sh
